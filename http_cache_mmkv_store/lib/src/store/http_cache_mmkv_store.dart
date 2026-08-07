@@ -59,13 +59,8 @@ class MMKVCacheStore extends CacheStore {
     String? rootDir,
     String? groupDir,
     MMKVLogLevel logLevel = MMKVLogLevel.Info,
-    MMKVHandler? handler,
-  }) => MMKV.initialize(
-    groupDir: groupDir,
-    rootDir: rootDir,
-    logLevel: logLevel,
-    handler: handler,
-  );
+  }) =>
+      MMKV.initialize(groupDir: groupDir, rootDir: rootDir, logLevel: logLevel);
 
   @override
   Future<void> clean({

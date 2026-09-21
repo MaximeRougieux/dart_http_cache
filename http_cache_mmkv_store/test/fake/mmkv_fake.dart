@@ -15,6 +15,9 @@ class MMKVFake implements MMKV {
   List<String> get allNonExpiredKeys => _data.keys.toList();
 
   @override
+  void checkContentChangedByOuterProcess() {}
+
+  @override
   void checkReSetCryptKey(String cryptKey, {bool aes256 = false}) {}
 
   @override
@@ -133,6 +136,12 @@ class MMKVFake implements MMKV {
   }
 
   @override
+  bool get isMultiProcess => false;
+
+  @override
+  bool get isReadOnly => false;
+
+  @override
   String get mmapID => '';
 
   @override
@@ -166,6 +175,11 @@ class MMKVFake implements MMKV {
 
   @override
   int writeValueToNativeBuffer(String key, MMBuffer buffer) {
+    return 0;
+  }
+
+  @override
+  int importFrom(MMKV src) {
     return 0;
   }
 }
